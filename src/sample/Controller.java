@@ -28,10 +28,13 @@ public class Controller implements Initializable {
 
     public void onAdd() {
         Contact contact = new Contact(name.getText(), email.getText(), phone.getText());
-        contacts.add(contact);
-        name.clear();
-        email.clear();
-        phone.clear();
+        // Overheard Alex helping someone with this problem.
+        if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()) {
+            contacts.add(new Contact(name.getText(), phone.getText(), email.getText()));
+        }
+               name.clear();
+               email.clear();
+               phone.clear();
     }
 
     public void onRemove() {
